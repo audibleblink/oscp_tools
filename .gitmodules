@@ -7,3 +7,6 @@
 [submodule "pysecdump"]
 	path = pysecdump
 	url = git@github.com:pentestmonkey/pysecdump.git
+[submodule "windowsEnum"]
+	path = windowsEnum
+	url = git@github.com:azmatt/windowsEnum.git
