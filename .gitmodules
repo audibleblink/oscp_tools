@@ -4,3 +4,6 @@
 [submodule "PowerSploit"]
 	path = PowerSploit
 	url = git@github.com:PowerShellMafia/PowerSploit.git
+[submodule "pysecdump"]
+	path = pysecdump
+	url = git@github.com:pentestmonkey/pysecdump.git
