@@ -1,3 +1,6 @@
 [submodule "windows-privesc-check"]
 	path = windows-privesc-check
 	url = git@github.com:pentestmonkey/windows-privesc-check.git
+[submodule "PowerSploit"]
+	path = PowerSploit
+	url = git@github.com:PowerShellMafia/PowerSploit.git
