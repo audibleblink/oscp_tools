@@ -36,13 +36,13 @@ def httpEnum(ip_address, port):
     HTTPSCAN = (
 	 "nmap -sV -Pn -vv -p %s --script=http-vhosts,http-userdir-enum,http-apache-negotiation,"
 	 "http-backup-finder,http-config-backup,http-default-accounts,http-methods,http-method-tamper,"
-	 "http-passwd,http-robots.txt -oN results/%s/http.nmap %s"
-    ) % (port, ip_address, ip_address)
+	 "http-passwd,http-robots.txt -oN results/%s/http_%s.nmap %s"
+    ) % (port, ip_address, port, ip_address)
 
     results = subprocess.check_output(HTTPSCAN, shell=True)
     DIRBUST = "./dirbust.py http://%s:%s %s" % (ip_address, port, ip_address) # execute the python script
     subprocess.call(DIRBUST, shell=True)
-    # NIKTOSCAN = "nikto -host %s -p %s > %s._nikto" % (ip_address, port, ip_address)
+    NIKTOSCAN = "nikto -host %s -p %s > results/%s/%s_http.nikto" % (ip_address, port, ip_address, ip_address)
     return
 
 def httpsEnum(ip_address, port):
@@ -51,12 +51,12 @@ def httpsEnum(ip_address, port):
     HTTPSCANS = (
 	 "nmap -sV -Pn -vv -p %s --script=http-vhosts,http-userdir-enum,http-apache-negotiation,"
 	 "http-backup-finder,http-config-backup,http-default-accounts,http-methods,http-method-tamper,"
-	 "http-passwd,http-robots.txt -oX results/%s/https.nmap %s" 
-    ) % (port, ip_address, ip_address)
+	 "http-passwd,http-robots.txt -oN results/%s/https_%s.nmap %s" 
+    ) % (port, ip_address, port, ip_address)
     results = subprocess.check_output(HTTPSCANS, shell=True)
     DIRBUST = "./dirbust.py https://%s:%s %s" % (ip_address, port, ip_address) # execute the python script
     subprocess.call(DIRBUST, shell=True)
-    # NIKTOSCAN = "nikto -host %s -p %s > %s._nikto" % (ip_address, port, ip_address)
+    NIKTOSCAN = "nikto -host %s -p %s > results/%s/%s_https.nikto" % (ip_address, port, ip_address, ip_address)
     return
 
 def mssqlEnum(ip_address, port):
@@ -116,9 +116,9 @@ def nmapScan(ip_address):
 	 -oN '%s/%s.nmap' \
 	 -oX '%s/%s_nmap_scan_import.xml' %s"  % \
 	 (result_dir, ip_address, result_dir, ip_address, ip_address)
-   # UDPSCAN = "nmap -vv -Pn -A -sC -sU -T4 --top-ports 200 -oN 'results/exam/%sU.nmap' -oX 'results/exam/nmap/%sU_nmap_scan_import.xml' %s" % (ip_address, ip_address, ip_address)
+   UDPSCAN = "nmap -vv -Pn -A -sC -sU -T4 --top-ports 200 -oN 'results/%s/udp.nmap' %s" % (ip_address, ip_address)
    results = subprocess.check_output(TCPSCAN, shell=True)
-   # udpresults = subprocess.check_output(UDPSCAN, shell=True)
+   udpresults = subprocess.check_output(UDPSCAN, shell=True)
    lines = results.split("\n")
    for line in lines:
       ports = []
