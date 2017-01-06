@@ -43,6 +43,7 @@ def httpEnum(ip_address, port):
     DIRBUST = "./dirbust.py http://%s:%s %s" % (ip_address, port, ip_address) # execute the python script
     subprocess.call(DIRBUST, shell=True)
     NIKTOSCAN = "nikto -host %s -p %s > results/%s/%s_http.nikto" % (ip_address, port, ip_address, ip_address)
+    subprocess.call(NIKTOSCAN, shell=True)
     return
 
 def httpsEnum(ip_address, port):
@@ -57,6 +58,7 @@ def httpsEnum(ip_address, port):
     DIRBUST = "./dirbust.py https://%s:%s %s" % (ip_address, port, ip_address) # execute the python script
     subprocess.call(DIRBUST, shell=True)
     NIKTOSCAN = "nikto -host %s -p %s > results/%s/%s_https.nikto" % (ip_address, port, ip_address, ip_address)
+    subprocess.call(NIKTOSCAN, shell=True)
     return
 
 def mssqlEnum(ip_address, port):
