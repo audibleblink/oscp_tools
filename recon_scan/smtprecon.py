@@ -16,7 +16,7 @@ if len(sys.argv) != 2:
 
 
 print "INFO: Trying SMTP Enum on " + sys.argv[1]
-names = open('/usr/share/wfuzz/wordlist/fuzzdb/wordlists-user-passwd/names/namelist.txt', 'r')
+names = open('/usr/share/wfuzz/wordlist/others/names.txt', 'r')
 for name in names:
     s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     connect=s.connect((sys.argv[1],25))

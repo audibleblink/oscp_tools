@@ -10,8 +10,7 @@ if len(sys.argv) != 3:
 ip_address = sys.argv[1].strip()
 port = sys.argv[2].strip()
 print "INFO: Performing nmap FTP script scan for " + ip_address + ":" + port
-FTPSCAN = "nmap -sV -Pn -vv -p %s --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,\
-	ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 -oN 'results/%s/ftp.nmap' %s" % (port, ip_address, ip_address)
+FTPSCAN = "nmap -sV -Pn -vv -p %s --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 -oN 'results/%s/ftp.nmap' %s" % (port, ip_address, ip_address)
 results = subprocess.check_output(FTPSCAN, shell=True)
 outfile = "results/" + ip_address + "/ftprecon.txt"
 f = open(outfile, "w")
