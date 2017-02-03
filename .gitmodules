@@ -13,3 +13,6 @@
 [submodule "linux-exploit-suggester"]
 	path = linux-exploit-suggester
 	url = https://github.com/mzet-/linux-exploit-suggester.git
+[submodule "dirsearch"]
+	path = dirsearch
+	url = https://github.com/maurosoria/dirsearch.git
