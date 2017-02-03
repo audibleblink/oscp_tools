@@ -10,3 +10,6 @@
 [submodule "windowsEnum"]
 	path = windowsEnum
 	url = git@github.com:azmatt/windowsEnum.git
+[submodule "linux-exploit-suggester"]
+	path = linux-exploit-suggester
+	url = https://github.com/mzet-/linux-exploit-suggester.git
