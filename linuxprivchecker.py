@@ -141,8 +141,8 @@ userInfo = {"WHOAMI":{"cmd":"whoami", "msg":"Current User", "results":results},
 userInfo = execCmd(userInfo)
 printResults(userInfo)
 
-if "root" in userInfo["ID"]["results"][0]:
-    print "[!] ARE YOU SURE YOU'RE NOT ROOT ALREADY?\n"
+# if "root" in userInfo["ID"]["results"][0]:
+#     print "[!] ARE YOU SURE YOU'RE NOT ROOT ALREADY?\n"
 
 # File/Directory Privs
 print bigline
@@ -153,7 +153,7 @@ fdPerms = {"WWDIRSROOT":{"cmd":"find / \( -wholename '/home/homedir*' -prune \) 
 	   "WWDIRS":{"cmd":"find / \( -wholename '/home/homedir*' -prune \) -o \( -type d -perm -0002 \) -exec ls -ld '{}' ';' 2>/dev/null | grep -v root", "msg":"World Writeable Directories for Users other than Root", "results":results},
 	   "WWFILES":{"cmd":"find / \( -wholename '/home/homedir/*' -prune -o -wholename '/proc/*' -prune \) -o \( -type f -perm -0002 \) -exec ls -l '{}' ';' 2>/dev/null", "msg":"World Writable Files", "results":results},
 	   "SUID":{"cmd":"find / \( -perm -2000 -o -perm -4000 \) -exec ls -ld {} \; 2>/dev/null", "msg":"SUID/SGID Files and Directories", "results":results},
-	   "SUDOAPPS":{"cmd":"echo cancel | sudo -Sll", "msg":"Apps current user can sudo", "results":results},
+	   "SUDOAPPS":{"cmd":"echo cancel | sudo -S -l", "msg":"Apps current user can sudo", "results":results},
 	   "ROOTHOME":{"cmd":"ls -ahlR /root 2>/dev/null", "msg":"Checking if root's home folder is accessible", "results":results}
 	  }
 
